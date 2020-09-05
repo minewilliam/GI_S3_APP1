@@ -73,16 +73,16 @@ public class Facture {
     /**
      * Permet de chager l'état de la facture à PAYEE
      */
-    public void payer()
+    public void payer() throws FactureException
     {
-       etat = FactureEtat.PAYEE;
+       this.etat.payer();
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
-    public void fermer()
+    public void fermer() throws FactureException
     {
-       etat = FactureEtat.FERMEE;
+       this.etat.fermer();
     }
 
     /**
@@ -91,10 +91,7 @@ public class Facture {
      */
     public void ouvrir() throws FactureException
     {
-        if (etat == FactureEtat.PAYEE)
-            throw new FactureException("La facture ne peut pas être reouverte.");
-        else
-            etat = FactureEtat.OUVERTE;
+        this.etat.ouvrir();
     }
 
     /**
@@ -108,11 +105,18 @@ public class Facture {
 
     /**
      *
+     * @param etat le nouvel etat de la facture
+     */
+    public void ChangerEtat(FactureEtat etat){
+        this.etat = etat;
+    }
+    /**
+     *
      * @param description la description de la Facture
      */
     public Facture(String description) {
         date = new Date();
-        etat = FactureEtat.OUVERTE;
+        etat = new EtatOuverte();
         courant = -1;
         this.description = description;
     }
@@ -124,7 +128,7 @@ public class Facture {
      */
     public void ajoutePlat(IFactureEntry p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
+        if (etat.toString().equals("Ouverte"))
             platchoisi.add(p);
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
@@ -139,7 +143,7 @@ public class Facture {
         return "menufact.facture.Facture{" +
                 "date=" + date +
                 ", description='" + description + '\'' +
-                ", etat=" + etat +
+                ", etat=" + etat.toString() +
                 ", platchoisi=" + platchoisi +
                 ", courant=" + courant +
                 ", client=" + client +
