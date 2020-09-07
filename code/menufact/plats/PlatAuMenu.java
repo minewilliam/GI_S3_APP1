@@ -3,9 +3,9 @@ package menufact.plats;
 import menufact.facture.models.IFacturable;
 
 public class PlatAuMenu implements IFacturable {
-    private int code;
-    private String description;
-    private double prix;
+    protected int code;
+    protected String description;
+    protected double prix;
 
     public PlatAuMenu(int code, String description, double prix) {
         this.code = code;

@@ -4,7 +4,7 @@ import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
 import menufact.facture.models.impl.FactureEntry;
-import menufact.facture.models.impl.PlatFacturable;
+import menufact.plats.PlatChoisi;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
 
@@ -274,7 +274,7 @@ public class TestMenuFact02 {
             throw me;
         }
 
-        PlatFacturable platChoisi = new PlatFacturable(m1.platCourant(),5);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
         try
         {
             f1.ajoutePlat(platChoisi);

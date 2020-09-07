@@ -1,7 +1,7 @@
 package menufact;
 
 import menufact.facture.Facture;
-import menufact.facture.models.impl.PlatFacturable;
+import menufact.plats.PlatChoisi;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
 
@@ -10,7 +10,7 @@ public class TestMenuFact01 {
 
         try {
             System.out.println("===menufact.plats.PlatAuMenu Constructeur 3 arguments");
-            PlatFacturable p1 = (PlatFacturable) new PlatAuMenu(0, "Frites sauce", 11.50);
+            PlatChoisi p1 = new PlatChoisi(0, "Frites sauce", 11.50);
             System.out.println(p1);
 
             System.out.println("===menufact.plats.PlatAuMenu Constructeur 3 arguments");
