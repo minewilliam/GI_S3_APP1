@@ -2,36 +2,36 @@ package inventaire;
 
 import ingredients.IngredientInventaire;
 import ingredients.exceptions.IngredientException;
-import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class Inventaire {
-    private ArrayList<IngredientInventaire> lesIngredients = new ArrayList<IngredientInventaire>();
+    private Hashtable<String, IngredientInventaire> lesIngredients = new Hashtable<String, IngredientInventaire>();
     private Inventaire inventaire;
 
     private Inventaire(){
 
     }
 
-    public void ajouter (int signNum, IngredientInventaire ingredientInventaire) throws IngredientException
+    public void ajouter (IngredientInventaire ingredientInventaire) throws IngredientException
     {
-        if(signNum != 1 && signNum != -1)
-            signNum = 1;
+        String inventaireKey = ingredientInventaire.getIngredient().getNom();
 
-        boolean found = false;
-        for(int i=0;i<lesIngredients.size();i++){
-            if(lesIngredients.get(i).getIngredient().getNom().equals(ingredientInventaire.getIngredient().getNom())){
-                lesIngredients.get(i).setQuantite(lesIngredients.get(i).getQuantite() + signNum*ingredientInventaire.getQuantite());
-                found = true;
-            }
-        }
-        if(!found && signNum == 1){
-            lesIngredients.add(ingredientInventaire);
-        }
-        else if(!found && signNum == -1){
-            throw new IngredientException("Il n'est pas possible d'avoir une quantité negative");
-        }
-
+        if(lesIngredients.containsKey(inventaireKey))
+            lesIngredients.get(inventaireKey).ajouter(ingredientInventaire.getQuantite());
+        else
+            lesIngredients.put(inventaireKey, ingredientInventaire);
     }
+
+    public void retirer (IngredientInventaire ingredientInventaire) throws IngredientException
+    {
+        String inventaireKey = ingredientInventaire.getIngredient().getNom();
+
+        if(lesIngredients.containsKey(inventaireKey))
+            lesIngredients.get(inventaireKey).retirer(ingredientInventaire.getQuantite());
+        else
+            throw new IngredientException("Cet ingrédient n'est pas dans l'inventaire");
+    }
+
 
     public Inventaire getInstance(){
         if(inventaire == null) {
