@@ -32,7 +32,10 @@ public class Inventaire {
             throw new IngredientException("Cet ingrédient n'est pas dans l'inventaire");
     }
     public double getQuantite(String ingredientName){
-        return lesIngredients.get(ingredientName).getQuantite();
+        if(lesIngredients.contains(ingredientName))
+            return lesIngredients.get(ingredientName).getQuantite();
+        else
+            return 0;
     }
 
 
