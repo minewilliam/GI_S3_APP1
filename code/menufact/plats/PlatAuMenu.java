@@ -1,12 +1,11 @@
 package menufact.plats;
 
 import ingredients.IngredientInventaire;
-import menufact.facture.models.IFacturable;
 import menufact.plats.exceptions.PlatException;
 
 import java.util.ArrayList;
 
-public class PlatAuMenu implements IFacturable {
+public class PlatAuMenu {
     protected int code;
     protected String description;
     protected double prix;
