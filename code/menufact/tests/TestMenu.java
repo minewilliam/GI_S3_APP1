@@ -22,6 +22,7 @@ public class TestMenu {
 
         TestMenu_HappyPath();
         TestMenu_IterationDansLesPlats();
+        TestMenu_Iteration_DepasseNombreDePlats_DevraitThrow();
 
         System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + " Finished:");
         System.out.println("Passed: "+ m_passed + " Failed: " + m_failed);
@@ -71,6 +72,38 @@ public class TestMenu {
         m.position(2);
 
         if(m.platCourant() != m_plat3) pass = false;
+
+        if(pass)
+        {
+            System.out.println(new Throwable()
+                    .getStackTrace()[0]
+                    .getMethodName() + ": Passed");
+            m_passed++;
+        }
+        else
+        {
+            System.out.println(new Throwable()
+                    .getStackTrace()[0]
+                    .getMethodName() + ": Failed");
+            m_failed++;
+        }
+    }
+
+    private void TestMenu_Iteration_DepasseNombreDePlats_DevraitThrow()
+    {
+        Menu m = new Menu(m_description);
+        m.ajoute(m_plat1);
+
+        boolean pass = true;
+
+        try {
+            m.positionSuivante();
+            pass = false;
+        }
+        catch(MenuException e)
+        {
+
+        }
 
         if(pass)
         {
