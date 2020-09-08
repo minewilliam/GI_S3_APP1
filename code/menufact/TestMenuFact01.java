@@ -88,7 +88,7 @@ public class TestMenuFact01 {
             System.out.println(facture);
             System.out.println(facture.sousTotal());
 
-            System.out.println("===Ajout d'un plat choisie à la facture");
+            System.out.println("===Ajout d'un plat choisi à la facture");
             facture.ajoutePlat(new PlatChoisi(ps2, 2));
             System.out.println(facture);
             System.out.println(facture.sousTotal());
@@ -102,15 +102,7 @@ public class TestMenuFact01 {
             System.out.println(facture);
             System.out.println("Etat = " + facture.getEtat());
 
-            facture.ouvrir();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
-
             facture.payer();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
-
-            facture.ouvrir();
             System.out.println(facture);
             System.out.println("Etat = " + facture.getEtat());
         }catch (Exception fe)
