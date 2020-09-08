@@ -2,7 +2,7 @@ package menufact.plats;
 
 import menufact.plats.exceptions.PlatException;
 
-public class EtatTermine implements EtatPlat{
+public class EtatTermine implements IEtatPlat {
     private PlatAuMenu plat;
 
     public EtatTermine(PlatAuMenu plat){

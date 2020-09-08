@@ -1,7 +1,6 @@
 package menufact.facture;
 
-import menufact.Chef;
-import menufact.ChefUpdate;
+import menufact.IChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
@@ -14,14 +13,14 @@ import java.util.Date;
  * @author Domingo Palao Munoz
  * @version 1.0
  */
-public class Facture implements ChefUpdate {
+public class Facture implements IChefUpdate {
     private Date date;
     private String description;
-    private FactureEtat etat;
+    private IFactureEtat etat;
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<>();
     private int courant;
     private Client client;
-    private ArrayList<ChefUpdate> lesChefs = new ArrayList<ChefUpdate>();
+    private ArrayList<IChefUpdate> lesChefs = new ArrayList<IChefUpdate>();
 
 
     /**********************Constantes ************/
@@ -101,7 +100,7 @@ public class Facture implements ChefUpdate {
      *
      * @return l'état de la facture
      */
-    public FactureEtat getEtat()
+    public IFactureEtat getEtat()
     {
         return etat;
     }
@@ -110,7 +109,7 @@ public class Facture implements ChefUpdate {
      *
      * @param etat le nouvel etat de la facture
      */
-    public void ChangerEtat(FactureEtat etat){
+    public void ChangerEtat(IFactureEtat etat){
         this.etat = etat;
     }
     /**

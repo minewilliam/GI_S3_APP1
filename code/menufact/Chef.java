@@ -2,7 +2,7 @@ package menufact;
 
 import menufact.plats.PlatChoisi;
 
-public class Chef implements ChefUpdate{
+public class Chef implements IChefUpdate {
     private String nom;
 
     public Chef(String nom){
