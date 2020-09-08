@@ -17,6 +17,7 @@ public class PlatAuMenu implements IFacturable {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.etat = new EtatCommande(this);
         this.Ingredients = Ingredients;
     }
 
