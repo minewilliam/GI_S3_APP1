@@ -1,18 +1,23 @@
 package menufact.plats;
 
+import ingredients.IngredientInventaire;
 import menufact.facture.models.IFacturable;
 import menufact.plats.exceptions.PlatException;
+
+import java.util.ArrayList;
 
 public class PlatAuMenu implements IFacturable {
     protected int code;
     protected String description;
     protected double prix;
+    protected ArrayList<IngredientInventaire> Ingredients;
     private EtatPlat etat;
 
-    public PlatAuMenu(int code, String description, double prix) {
+    public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> Ingredients) {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.Ingredients = Ingredients;
     }
 
     public PlatAuMenu(PlatAuMenu plat)
@@ -21,6 +26,7 @@ public class PlatAuMenu implements IFacturable {
         this.description = plat.description;
         this.prix = plat.prix;
         this.etat = new EtatCommande(this);
+        this.Ingredients = plat.Ingredients;
     }
 
     public PlatAuMenu() {
@@ -47,8 +53,17 @@ public class PlatAuMenu implements IFacturable {
                 "}\n";
     }
 
+    public ArrayList<IngredientInventaire> getIngredients() {
+        return this.Ingredients;
+    }
+
+    public void setIngredients(ArrayList<IngredientInventaire> ingredients)
+    {
+        this.Ingredients = ingredients;
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int code) {

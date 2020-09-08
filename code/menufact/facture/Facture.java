@@ -2,7 +2,7 @@ package menufact.facture;
 
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
-import menufact.facture.models.IFactureEntry;
+import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +16,7 @@ public class Facture {
     private Date date;
     private String description;
     private FactureEtat etat;
-    private ArrayList<IFactureEntry> platchoisi = new ArrayList<IFactureEntry>();
+    private ArrayList<PlatChoisi> platchoisi = new ArrayList<>();
     private int courant;
     private Client client;
 
@@ -41,7 +41,7 @@ public class Facture {
     public double sousTotal()
     {
         double soustotal=0;
-         for (IFactureEntry p : platchoisi)
+         for (PlatChoisi p : platchoisi)
              soustotal += p.getQuantite() * p.getPrix();
         return soustotal;
     }
@@ -126,7 +126,7 @@ public class Facture {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(IFactureEntry p) throws FactureException
+    public void ajoutePlat(PlatChoisi p) throws FactureException
     {
         if (etat.toString().equals("Ouverte"))
             platchoisi.add(p);
@@ -171,7 +171,7 @@ public class Facture {
                           "Les plats commandes:" + "\n" + lesPlats;
 
         factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (IFactureEntry plat : platchoisi)
+        for (PlatChoisi plat : platchoisi)
         {
             factureGenere +=  i + "     " + plat.getDescription() +  "  " + plat.getPrix() +  "      " + plat.getQuantite() + "\n";
             i++;

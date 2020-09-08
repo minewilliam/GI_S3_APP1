@@ -1,9 +1,27 @@
 package ingredients;
 
+import ingredients.Types.TypeIngredient;
+
 public class Ingredient {
     private String nom;
     private String description;
     private TypeIngredient typeIngredient;
+
+    public Ingredient(){};
+
+    public Ingredient(Ingredient ingredient)
+    {
+        this.nom = ingredient.nom;
+        this.description = ingredient.description;
+        this.typeIngredient = ingredient.typeIngredient;
+    }
+
+    public Ingredient(String nom, String Description, TypeIngredient type)
+    {
+        this.nom = nom;
+        this.description = Description;
+        this.typeIngredient = type;
+    }
 
     public String getNom() {
         return nom;
