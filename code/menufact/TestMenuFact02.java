@@ -6,7 +6,6 @@ import ingredients.exceptions.IngredientException;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
-import menufact.facture.models.impl.FactureEntry;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
@@ -263,7 +262,7 @@ public class TestMenuFact02 {
     {
         System.out.println("===test7_CreerFacture");
 
-        FactureEntry<PlatAuMenu> platChoisi = new FactureEntry<PlatAuMenu>(m1.platCourant(),5);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
         try
         {
             f1.ajoutePlat(platChoisi);

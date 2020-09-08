@@ -1,8 +1,6 @@
 package menufact.plats;
 
-import menufact.facture.models.IFactureEntry;
-
-public class PlatChoisi extends PlatAuMenu implements IFactureEntry {
+public class PlatChoisi extends PlatAuMenu {
     private int quantite;
 
     public PlatChoisi(PlatAuMenu plat, int quantite)
