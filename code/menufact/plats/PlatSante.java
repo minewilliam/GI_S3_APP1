@@ -1,9 +1,4 @@
-package menufact.plats;
-
-import ingredients.Ingredient;
-import menufact.plats.PlatAuMenu;
-
-import java.util.ArrayList;
+package menufact.plats;;
 
 public class PlatSante extends PlatAuMenu {
     private double kcal;
@@ -20,10 +15,11 @@ public class PlatSante extends PlatAuMenu {
     @Override
     public String toString() {
         return "menufact.plats.PlatSante{" +
+                super.toString() +
                 "kcal=" + kcal +
                 ", chol=" + chol +
                 ", gras=" + gras +
-                "} " + super.toString();
+                "} ";
     }
 
     public double getKcal() {
