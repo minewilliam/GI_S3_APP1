@@ -2,7 +2,7 @@ package menufact.facture;
 
 import menufact.facture.exceptions.FactureException;
 
-public interface FactureEtat {
+public interface IFactureEtat {
 
     public void ouvrir() throws FactureException;
     public void payer() throws FactureException;
