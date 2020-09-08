@@ -136,7 +136,7 @@ public class Facture implements IChefUpdate {
     /**
      *
      * @param p un plat choisi
-     * @throws FactureException Seulement si la facture est OUVERTE
+     * @throws FactureException Seulement si la facture n'est pas  OUVERTE
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {

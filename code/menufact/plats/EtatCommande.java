@@ -8,6 +8,10 @@ public class EtatCommande implements IEtatPlat {
     public EtatCommande(PlatAuMenu plat){
         this.plat = plat;
     }
+    /**
+     *
+     * @throws
+     */
     public void Servir() throws PlatException {
         throw new PlatException("Le plat ne peut etre servi quand il est seulement commande");
     }
