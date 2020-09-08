@@ -1,11 +1,13 @@
 package menufact.plats;
 
 import menufact.facture.models.IFacturable;
+import menufact.plats.exceptions.PlatException;
 
 public class PlatAuMenu implements IFacturable {
     protected int code;
     protected String description;
     protected double prix;
+    private EtatPlat etat;
 
     public PlatAuMenu(int code, String description, double prix) {
         this.code = code;
@@ -18,9 +20,22 @@ public class PlatAuMenu implements IFacturable {
         this.code = plat.code;
         this.description = plat.description;
         this.prix = plat.prix;
+        this.etat = new EtatCommande(this);
     }
 
     public PlatAuMenu() {
+    }
+    public void ChangeState(EtatPlat etat){
+        this.etat = etat;
+    }
+    public void Servir() throws PlatException {
+        etat.Servir();
+    }
+    public void Preparer() throws PlatException{
+        etat.Preparer();
+    }
+    public void EstPret() throws PlatException{
+        etat.EstPret();
     }
 
     @Override
