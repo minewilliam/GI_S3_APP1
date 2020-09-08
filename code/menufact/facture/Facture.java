@@ -116,7 +116,7 @@ public class Facture {
      */
     public Facture(String description) {
         date = new Date();
-        etat = new EtatOuverte();
+        etat = new EtatOuverte(this);
         courant = -1;
         this.description = description;
     }
