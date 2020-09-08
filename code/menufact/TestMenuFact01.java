@@ -1,8 +1,7 @@
 package menufact;
 
-import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
-import ingredients.Types.TypeIngredient;
+import ingredients.Types.*;
 import menufact.facture.Facture;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
@@ -13,13 +12,13 @@ public class TestMenuFact01 {
     public static void main(String[] args) {
 
         //Test data:
-        Ingredient ingredient1 = new Ingredient("Ravioli", "violi", TypeIngredient.VIANDE);
-        Ingredient ingredient2 = new Ingredient("Pomme", "Mcintoch rouge", TypeIngredient.FRUIT);
-        Ingredient ingredient3 = new Ingredient("Tomate", "Rouge", TypeIngredient.FRUIT);
-        Ingredient ingredient4 = new Ingredient("Porc", "Un Porc Entier", TypeIngredient.VIANDE);
-        Ingredient ingredient5 = new Ingredient("Laitue", "Verte", TypeIngredient.LEGUME);
-        Ingredient ingredient6 = new Ingredient("Fromage", "Mozzarella", TypeIngredient.LAITIER);
-        Ingredient ingredient7 = new Ingredient("Epice", "Mexicaine", TypeIngredient.EPICE);
+        Viande ingredient1 = new Viande("Ravioli", "violi");
+        Fruit ingredient2 = new Fruit("Pomme", "Mcintoch rouge");
+        Fruit ingredient3 = new Fruit("Tomate", "Rouge");
+        Viande ingredient4 = new Viande("Porc", "Un Porc Entier");
+        Legume ingredient5 = new Legume("Laitue", "Verte");
+        Laitier ingredient6 = new Laitier("Fromage", "Mozzarella");
+        Epice ingredient7 = new Epice("Epice", "Mexicaine");
 
 
         try {
