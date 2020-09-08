@@ -1,8 +1,11 @@
 package menufact.facture;
 
+import menufact.ChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.facture.models.IFactureEntry;
+import menufact.plats.PlatAuMenu;
+import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,13 +15,15 @@ import java.util.Date;
  * @author Domingo Palao Munoz
  * @version 1.0
  */
-public class Facture {
+public class Facture implements ChefUpdate {
     private Date date;
     private String description;
     private FactureEtat etat;
     private ArrayList<IFactureEntry> platchoisi = new ArrayList<IFactureEntry>();
     private int courant;
     private Client client;
+    private ArrayList<ChefUpdate> lesChefs = new ArrayList<ChefUpdate>();
+
 
 
     /**********************Constantes ************/
@@ -126,14 +131,21 @@ public class Facture {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(IFactureEntry p) throws FactureException
+    public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat.toString().equals("Ouverte"))
+        if (etat.toString().equals("Ouverte")) {
             platchoisi.add(p);
+            update(p);
+        }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
     }
 
+    public void update(PlatChoisi p){
+        for(int i=0;i<lesChefs.size();i++){
+            lesChefs.get(i).update(p);
+        }
+    }
     /**
      *
      * @return le contenu de la facture en chaîne de caracteres

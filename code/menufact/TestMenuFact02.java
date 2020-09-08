@@ -243,7 +243,7 @@ public class TestMenuFact02 {
     {
         System.out.println("===test7_CreerFacture");
 
-        FactureEntry<PlatAuMenu> platChoisi = new FactureEntry<PlatAuMenu>(m1.platCourant(),5);
+        PlatChoisi platChoisi = new PlatChoisi(7, "Tartar de Saumon", 20);
         try
         {
             f1.ajoutePlat(platChoisi);
