@@ -10,6 +10,7 @@ import menufact.plats.PlatChoisi;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
 import menufact.tests.TestClient;
+import menufact.tests.TestMenu;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,7 @@ public class TestMenuFact02 {
         boolean trace = true;
 
         new TestClient();
+        new TestMenu();
 
         Viande ingredient1 = new Viande("Ravioli", "violi");
         Fruit ingredient2 = new Fruit("Pomme", "Mcintoch rouge");

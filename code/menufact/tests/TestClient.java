@@ -30,7 +30,7 @@ public class TestClient {
 
         TestClient_GetSetNumeroCarteCredit();
 
-        System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + "Finished:");
+        System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + " Finished:");
         System.out.println("Passed: "+ m_passed + " Failed: " + m_failed);
     }
 
