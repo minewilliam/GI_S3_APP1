@@ -2,7 +2,7 @@ package menufact.facture;
 
 import menufact.facture.exceptions.FactureException;
 
-public class EtatPaye implements FactureEtat{
+public class EtatPaye implements IFactureEtat {
     private Facture facture;
 
     public EtatPaye(Facture facture){

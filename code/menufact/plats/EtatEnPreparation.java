@@ -2,7 +2,7 @@ package menufact.plats;
 
 import menufact.plats.exceptions.PlatException;
 
-public class EtatEnPreparation implements EtatPlat {
+public class EtatEnPreparation implements IEtatPlat {
     private PlatAuMenu plat;
 
     public EtatEnPreparation(PlatAuMenu plat){

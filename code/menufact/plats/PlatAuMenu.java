@@ -11,7 +11,7 @@ public class PlatAuMenu implements IFacturable {
     protected String description;
     protected double prix;
     protected ArrayList<IngredientInventaire> Ingredients;
-    protected EtatPlat etat;
+    private IEtatPlat etat;
 
     public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> Ingredients) {
         this.code = code;
