@@ -1,14 +1,11 @@
 package menufact.facture;
 
-
-import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
 import inventaire.Inventaire;
 import menufact.IChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.EtatImpossibleDeServir;
-import menufact.plats.IEtatPlat;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -179,9 +176,7 @@ public class Facture implements IChefUpdate {
     }
 
     public void update(PlatChoisi plat){
-        for(int i=0;i<lesChefs.size();i++){
-            lesChefs.get(i).update(plat);
-        }
+        lesChefs.forEach(chef -> chef.update(plat));
     }
 
     /**
