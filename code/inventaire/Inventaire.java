@@ -6,7 +6,7 @@ import java.util.Hashtable;
 
 public class Inventaire {
     private Hashtable<String, IngredientInventaire> lesIngredients = new Hashtable<String, IngredientInventaire>();
-    private Inventaire inventaire;
+    private static Inventaire inventaire;
 
     private Inventaire(){
 
@@ -31,9 +31,12 @@ public class Inventaire {
         else
             throw new IngredientException("Cet ingrédient n'est pas dans l'inventaire");
     }
+    public double getQuantite(String ingredientName){
+        return lesIngredients.get(ingredientName).getQuantite();
+    }
 
 
-    public Inventaire getInstance(){
+    public static Inventaire getInstance(){
         if(inventaire == null) {
             inventaire = new Inventaire();
         }

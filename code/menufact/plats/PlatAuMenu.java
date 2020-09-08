@@ -11,7 +11,7 @@ public class PlatAuMenu implements IFacturable {
     protected String description;
     protected double prix;
     protected ArrayList<IngredientInventaire> Ingredients;
-    private EtatPlat etat;
+    protected EtatPlat etat;
 
     public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> Ingredients) {
         this.code = code;
@@ -29,8 +29,7 @@ public class PlatAuMenu implements IFacturable {
         this.Ingredients = plat.Ingredients;
     }
 
-    public PlatAuMenu() {
-    }
+
     public void ChangeState(EtatPlat etat){
         this.etat = etat;
     }

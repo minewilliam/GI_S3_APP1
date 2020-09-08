@@ -2,11 +2,13 @@ package menufact;
 
 import ingredients.IngredientInventaire;
 import ingredients.Types.*;
+import inventaire.Inventaire;
 import menufact.facture.Facture;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatEnfant;
 import menufact.plats.PlatSante;
+import sun.awt.OSInfo;
 
 import java.util.ArrayList;
 

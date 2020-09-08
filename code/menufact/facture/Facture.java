@@ -1,9 +1,14 @@
 package menufact.facture;
 
-import menufact.Chef;
+
+import ingredients.Ingredient;
+import ingredients.IngredientInventaire;
+import inventaire.Inventaire;
 import menufact.ChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.EtatImpossibleDeServir;
+import menufact.plats.EtatPlat;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -22,6 +27,7 @@ public class Facture implements ChefUpdate {
     private int courant;
     private Client client;
     private ArrayList<ChefUpdate> lesChefs = new ArrayList<ChefUpdate>();
+    private Inventaire inventaire;
 
 
     /**********************Constantes ************/
@@ -122,6 +128,9 @@ public class Facture implements ChefUpdate {
         etat = new EtatOuverte(this);
         courant = -1;
         this.description = description;
+        this.inventaire = Inventaire.getInstance();
+
+
     }
 
     /**
@@ -132,8 +141,18 @@ public class Facture implements ChefUpdate {
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
         if (etat.toString().equals("Ouverte")){
+            for (IngredientInventaire i : p.getIngredients()){
+                if(inventaire.getQuantite(i.getIngredient().getNom())<i.getQuantite()){
+                    p.ChangeState(new EtatImpossibleDeServir(p));
+                    throw new FactureException("Manque d'ingredient pour completer le plat");
+
+                }
+                
+            }
             platchoisi.add(p);
             update(p);
+
+
         }
 
         else
