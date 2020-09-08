@@ -33,13 +33,13 @@ public class TestPlatChoisi {
         PlatAuMenu platmenu = new PlatAuMenu(29, "Saumon", 20, array);
         PlatChoisi platChoisi = new PlatChoisi(platmenu, 2);
         platChoisi.setQuantite(8);
-        if(platChoisi.getQuantite() != 8){
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + " Failed");
-            m_failed++;
+        if(platChoisi.getQuantite() == 8){
+            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Passed");
+            m_passed++;
         }
         else{
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + " Passed");
-            m_passed++;
+            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Failed");
+            m_failed++;
         }
 
     }

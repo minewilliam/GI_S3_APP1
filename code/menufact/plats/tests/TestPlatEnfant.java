@@ -37,13 +37,13 @@ public class TestPlatEnfant {
         PlatAuMenu platmenu = new PlatAuMenu(29, "Saumon", 20, array);
         PlatEnfant platEnfant = new PlatEnfant(platmenu, 0.66);
 
-        if(platEnfant.getProportion() != 0.66){
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + " Failed");
-            m_failed++;
+        if(platEnfant.getProportion() == 0.66){
+            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Passed");
+            m_passed++;
         }
         else{
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0] + " Passed");
-            m_passed++;
+            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Failed");
+            m_failed++;
         }
 
     }

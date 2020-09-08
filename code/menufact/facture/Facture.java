@@ -142,6 +142,7 @@ public class Facture implements IChefUpdate {
     {
         if (etat.toString().equals("Ouverte")){
             for (IngredientInventaire i : p.getIngredients()){
+
                 if(inventaire.getQuantite(i.getIngredient().getNom())<i.getQuantite()){
                     p.ChangeState(new EtatImpossibleDeServir(p));
                     throw new FactureException("Manque d'ingredient pour completer le plat");
