@@ -194,7 +194,8 @@ public class Facture implements IChefUpdate {
      */
     public String genererFacture()
     {
-        String lesPlats = new String();
+        ArrayList<String> lesPlats = new ArrayList<>();
+        platchoisi.forEach(p -> lesPlats.add(Integer.toString(p.getCode())));
         String factureGenere = new String();
 
         int i =1;

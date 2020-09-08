@@ -3,6 +3,7 @@ package menufact;
 import ingredients.IngredientInventaire;
 import ingredients.Types.*;
 import ingredients.exceptions.IngredientException;
+import menufact.facture.TestFacture;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
@@ -31,6 +32,7 @@ public class TestMenuFact02 {
         new TestPlatSante();
         new TestPlatEnfant();
         new TestChef();
+        new TestFacture();
 
 
         Viande ingredient1 = new Viande("Ravioli", "violi");
