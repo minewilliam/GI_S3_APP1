@@ -4,10 +4,10 @@ import menufact.Client;
 
 public class TestClient {
 
-    private static int clientId = 666;
-    private static String nom = "Hubert";
+    private static int m_clientId = 666;
+    private static String m_nom = "Hubert";
     private static String numeroCarte = "2318952";
-    private Client m_client = new Client(clientId, nom, numeroCarte);
+    private Client m_client = new Client(m_clientId, m_nom, numeroCarte);
 
     private int m_passed = 0;
     private int m_failed = 0;
@@ -36,9 +36,9 @@ public class TestClient {
 
     private void TestClient_Constructor_HappyPath()
     {
-        Client c = new Client(clientId, nom, numeroCarte);
-        if(c.getIdClient() == clientId &&
-        c.getNom() == nom &&
+        Client c = new Client(m_clientId, m_nom, numeroCarte);
+        if(c.getIdClient() == m_clientId &&
+        c.getNom() == m_nom &&
         c.getNumeroCarteCredit() == numeroCarte)
         {
             System.out.println(new Throwable()
@@ -57,7 +57,7 @@ public class TestClient {
 
     private void TestClient_GetSetClientId()
     {
-        Client c = new Client(clientId, nom, numeroCarte);
+        Client c = new Client(m_clientId, m_nom, numeroCarte);
         c.setIdClient(555);
 
         if(c.getIdClient() == 555)
@@ -78,7 +78,7 @@ public class TestClient {
 
     private void TestClient_GetSetNom()
     {
-        Client c = new Client(clientId, nom, numeroCarte);
+        Client c = new Client(m_clientId, m_nom, numeroCarte);
         c.setNom("Peter");
 
         if(c.getNom() == "Peter")
@@ -99,7 +99,7 @@ public class TestClient {
 
     private void TestClient_GetSetNumeroCarteCredit()
     {
-        Client c = new Client(clientId, nom, numeroCarte);
+        Client c = new Client(m_clientId, m_nom, numeroCarte);
         c.setNumeroCarteCredit("23109856327");
 
         if(c.getNumeroCarteCredit() == "23109856327")
