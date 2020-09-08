@@ -10,6 +10,7 @@ import menufact.facture.models.impl.FactureEntry;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
+import menufact.tests.TestClient;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,8 @@ public class TestMenuFact02 {
 
     public static void main(String[] args) {
         boolean trace = true;
+
+        new TestClient();
 
         Viande ingredient1 = new Viande("Ravioli", "violi");
         Fruit ingredient2 = new Fruit("Pomme", "Mcintoch rouge");
