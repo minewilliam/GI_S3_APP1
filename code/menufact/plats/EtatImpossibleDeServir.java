@@ -2,7 +2,7 @@ package menufact.plats;
 
 import menufact.plats.exceptions.PlatException;
 
-public class EtatImpossibleDeServir implements EtatPlat{
+public class EtatImpossibleDeServir implements IEtatPlat{
     private PlatAuMenu plat;
 
     public EtatImpossibleDeServir(PlatAuMenu plat){

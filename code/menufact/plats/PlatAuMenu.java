@@ -30,7 +30,7 @@ public class PlatAuMenu implements IFacturable {
     }
 
 
-    public void ChangeState(EtatPlat etat){
+    public void ChangeState(IEtatPlat etat){
         this.etat = etat;
     }
     public void Servir() throws PlatException {

@@ -8,7 +8,7 @@ import menufact.IChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.EtatImpossibleDeServir;
-import menufact.plats.EtatPlat;
+import menufact.plats.IEtatPlat;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class Facture implements IChefUpdate {
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<>();
     private int courant;
     private Client client;
-    private ArrayList<ChefUpdate> lesChefs = new ArrayList<ChefUpdate>();
+    private ArrayList<IChefUpdate> lesChefs = new ArrayList<IChefUpdate>();
     private Inventaire inventaire;
 
 
