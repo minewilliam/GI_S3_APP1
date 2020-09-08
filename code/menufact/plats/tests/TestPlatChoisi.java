@@ -34,11 +34,11 @@ public class TestPlatChoisi {
         PlatChoisi platChoisi = new PlatChoisi(platmenu, 2);
         platChoisi.setQuantite(8);
         if(platChoisi.getQuantite() == 8){
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Passed");
+            System.out.println(new Throwable().getStackTrace()[0].getMethodName() + " Passed");
             m_passed++;
         }
         else{
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Failed");
+            System.out.println(new Throwable().getStackTrace()[0].getMethodName() + " Failed");
             m_failed++;
         }
 

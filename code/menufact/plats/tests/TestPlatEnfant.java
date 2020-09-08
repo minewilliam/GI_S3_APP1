@@ -38,11 +38,11 @@ public class TestPlatEnfant {
         PlatEnfant platEnfant = new PlatEnfant(platmenu, 0.66);
 
         if(platEnfant.getProportion() == 0.66){
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Passed");
+            System.out.println(new Throwable().getStackTrace()[0].getMethodName() + " Passed");
             m_passed++;
         }
         else{
-            System.out.println("Test suite: " + new Throwable().getStackTrace()[0].getMethodName() + " Failed");
+            System.out.println(new Throwable().getStackTrace()[0].getMethodName() + " Failed");
             m_failed++;
         }
 
