@@ -1,5 +1,8 @@
 package menufact;
 
+import ingredients.IngredientInventaire;
+import ingredients.Types.*;
+import ingredients.exceptions.IngredientException;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
@@ -8,37 +11,63 @@ import menufact.plats.PlatChoisi;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatSante;
 
+import java.util.ArrayList;
+
 public class TestMenuFact02 {
 
     public static void main(String[] args) {
         boolean trace = true;
 
+        Viande ingredient1 = new Viande("Ravioli", "violi");
+        Fruit ingredient2 = new Fruit("Pomme", "Mcintoch rouge");
+        Fruit ingredient3 = new Fruit("Tomate", "Rouge");
+        Viande ingredient4 = new Viande("Porc", "Un Porc Entier");
+        Legume ingredient5 = new Legume("Laitue", "Verte");
+        Laitier ingredient6 = new Laitier("Fromage", "Mozzarella");
+        Epice ingredient7 = new Epice("Epice", "Mexicaine");
+
+        ArrayList<IngredientInventaire> Ingredients1 = new ArrayList<>();
+        try {
+            Ingredients1 = new ArrayList<IngredientInventaire>() {
+                {
+                    add(new IngredientInventaire(ingredient1, 32));
+                    add(new IngredientInventaire(ingredient2, 1));
+                    add(new IngredientInventaire(ingredient3, 2));
+                    add(new IngredientInventaire(ingredient4, 1));
+                    add(new IngredientInventaire(ingredient5, 2.1));
+                    add(new IngredientInventaire(ingredient6, 2.5));
+                    add(new IngredientInventaire(ingredient7, 2));
+                }
+            };
+        } catch (IngredientException e) {
+            e.printStackTrace();
+        }
+
         TestMenuFact02 t = new TestMenuFact02();
 
-        PlatAuMenu p1 = new PlatAuMenu(0,"PlatAuMenu0",10);
-        PlatAuMenu p2 = new PlatAuMenu(1,"PlatAuMenu1",20);
-        PlatAuMenu p3 = new PlatAuMenu(2,"PlatAuMenu2",30);
-        PlatAuMenu p4 = new PlatAuMenu(3,"PlatAuMenu3",40);
-        PlatAuMenu p5 = new PlatAuMenu(4,"PlatAuMenu4",50);
+        PlatAuMenu p1 = new PlatAuMenu(0, "PlatAuMenu0", 10, Ingredients1);
+        PlatAuMenu p2 = new PlatAuMenu(1, "PlatAuMenu1", 20, Ingredients1);
+        PlatAuMenu p3 = new PlatAuMenu(2, "PlatAuMenu2", 30, Ingredients1);
+        PlatAuMenu p4 = new PlatAuMenu(3, "PlatAuMenu3", 40, Ingredients1);
+        PlatAuMenu p5 = new PlatAuMenu(4, "PlatAuMenu4", 50, Ingredients1);
 
 
-        PlatSante ps1 = new PlatSante(10,"PlatSante0",10,11,11,11);
-        PlatSante ps2 = new PlatSante(11,"PlatSante1",20,11,11,11);
-        PlatSante ps3 = new PlatSante(12,"PlatSante2",30,11,11,11);
-        PlatSante ps4 = new PlatSante(13,"PlatSante3",40,11,11,11);
-        PlatSante ps5 = new PlatSante(14,"PlatSante4",50,11,11,11);
-
+        PlatSante ps1 = new PlatSante(new PlatAuMenu(10, "PlatSante0", 10, Ingredients1), 11, 11, 11);
+        PlatSante ps2 = new PlatSante(new PlatAuMenu(11, "PlatSante1", 20, Ingredients1), 11, 11, 11);
+        PlatSante ps3 = new PlatSante(new PlatAuMenu(12, "PlatSante2", 30, Ingredients1), 11, 11, 11);
+        PlatSante ps4 = new PlatSante(new PlatAuMenu(13, "PlatSante3", 40, Ingredients1), 11, 11, 11);
+        PlatSante ps5 = new PlatSante(new PlatAuMenu(14, "PlatSante4", 50, Ingredients1), 11, 11, 11);
 
         Menu m1 = new Menu("menufact.Menu 1");
         Menu m2 = new Menu("menufact.Menu 2");
 
         Facture f1 = new Facture("Ma facture");
 
-        Client c1 = new Client(1,"Mr Client","1234567890");
+        Client c1 = new Client(1, "Mr Client", "1234567890");
 
 
-        t.test1_AffichePlatsAuMenu(trace, p1,p2,p3,p4,p5);
-        t. test2_AffichePlatsSante(trace, ps1,ps2,ps3,ps4,ps5);
+        t.test1_AffichePlatsAuMenu(trace, p1, p2, p3, p4, p5);
+        t.test2_AffichePlatsSante(trace, ps1, ps2, ps3, ps4, ps5);
 
         t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, p3, p4, ps3, ps4);
 
@@ -65,43 +94,31 @@ public class TestMenuFact02 {
         t.test8_AjouterClientFacture(f1, c1);
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,1);
-        } catch (FactureException fe)
-        {
+            t.test8_AjouterPlatsFacture(f1, m1, 1);
+        } catch (FactureException fe) {
             System.out.println(fe.getMessage());
-        }
-        catch (MenuException me)
-        {
+        } catch (MenuException me) {
             System.out.println(me);
         }
         try {
             t.test9_PayerFacture(f1);
-        } catch (FactureException fe)
-        {
+        } catch (FactureException fe) {
             System.out.println(fe.getMessage());
         }
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,1);
-        } catch (FactureException fe)
-        {
+            t.test8_AjouterPlatsFacture(f1, m1, 1);
+        } catch (FactureException fe) {
             System.out.println(fe.getMessage());
-        }
-        catch (MenuException me)
-        {
+        } catch (MenuException me) {
             System.out.println(me);
         }
 
         try {
             f1.ouvrir();
-        } catch (FactureException fe)
-        {
+        } catch (FactureException fe) {
             System.out.println(fe.getMessage());
         }
-
-
-
-
 
 
         System.out.println("FIN DE TOUS LES TESTS...");
