@@ -8,11 +8,17 @@ public class PlatChoisi extends PlatAuMenu {
         super(plat);
         this.quantite = quantite;
     }
-
+    /**
+     *
+     * @param quantite la quantite de plat
+     */
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
-
+    /**
+     *
+     * @return la quantite de plat
+     */
     public int getQuantite() {
         return this.quantite;
     }

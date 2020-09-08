@@ -13,22 +13,35 @@ public class Menu {
     public Menu(String description) {
         this.description = description;
     }
-
+    /**
+     *
+     * @param p le plat a ajouter au menu
+     */
     public void ajoute (PlatAuMenu p)
     {
         plat.add(p);
     }
-
+    /**
+     *
+     * @param i la position du plat dans la liste
+     */
     public void position(int i)
     {
         courant = i;
     }
-
+    /**
+     *
+     * @return le plat Courant
+     */
     public PlatAuMenu platCourant()
     {
         return plat.get(courant);
     }
-
+    /**
+     *
+     * Permet de passer au prochain plat dans la liste
+     * @throws MenuException si il n'y a pas de prochain plat
+     */
     public void positionSuivante() throws MenuException
     {
         if (courant+1 >= plat.size())
@@ -37,6 +50,11 @@ public class Menu {
             courant++;
     }
 
+    /**
+     *
+     * Permet de passer au plat precedent dans la liste
+     * @throws MenuException si il n'y a pas de plat precedent
+     */
     public void positionPrecedente() throws MenuException
     {
         if (courant-1 < 0)
@@ -45,7 +63,10 @@ public class Menu {
             courant--;
     }
 
-
+    /**
+     *
+     * @return le menu en chaine de Charactere
+     */
     @Override
     public String toString() {
         return "menufact.Menu{" +

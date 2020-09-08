@@ -11,7 +11,10 @@ public class PlatSante extends PlatAuMenu {
         this.chol = chol;
         this.gras = gras;
     }
-
+    /**
+     *
+     * @return le plat en chaine de charactere
+     */
     @Override
     public String toString() {
         return "menufact.plats.PlatSante{" +
@@ -21,15 +24,24 @@ public class PlatSante extends PlatAuMenu {
                 ", gras=" + gras +
                 "} ";
     }
-
+    /**
+     *
+     * @return le nombre de kcal
+     */
     public double getKcal() {
         return kcal;
     }
-
+    /**
+     *
+     * @return le nombre de Chol
+     */
     public double getChol() {
         return chol;
     }
-
+    /**
+     *
+     * @return le nombre de gras
+     */
     public double getGras() {
         return gras;
     }

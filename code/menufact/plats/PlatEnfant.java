@@ -7,11 +7,17 @@ public class PlatEnfant extends PlatAuMenu{
         super(plat);
         this.proportion = proportion;
     }
-
+    /**
+     *
+     * @return la proportion du plat
+     */
     public double getProportion() {
         return proportion;
     }
-
+    /**
+     *
+     * @return le plat en chaine de charactere
+     */
     @Override
     public String toString() {
         return "PlatEnfant{" +
