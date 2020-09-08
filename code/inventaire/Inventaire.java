@@ -11,7 +11,11 @@ public class Inventaire {
     private Inventaire(){
 
     }
-
+    /**
+     *
+     * @param ingredientInventaire l'ingredient a ajouter a l'inventaire
+     * @throws IngredientException si l'inventaire est plein
+     */
     public void ajouter (IngredientInventaire ingredientInventaire) throws IngredientException
     {
         String inventaireKey = ingredientInventaire.getIngredient().getNom();
@@ -21,7 +25,11 @@ public class Inventaire {
         else
             lesIngredients.put(inventaireKey, ingredientInventaire);
     }
-
+    /**
+     *
+     * @param ingredientInventaire l'ingredient a retirer de l'inventaire
+     * @throws IngredientException si l'inventaire est vide de cet ingredient
+     */
     public void retirer (IngredientInventaire ingredientInventaire) throws IngredientException
     {
         String inventaireKey = ingredientInventaire.getIngredient().getNom();
@@ -31,6 +39,10 @@ public class Inventaire {
         else
             throw new IngredientException("Cet ingrédient n'est pas dans l'inventaire");
     }
+    /**
+     * @param ingredientName le nom de l'ingredient vise
+     * @return la quantite de l'ingredient ingredientName
+     */
     public double getQuantite(String ingredientName){
         if(lesIngredients.contains(ingredientName))
             return lesIngredients.get(ingredientName).getQuantite();
@@ -38,7 +50,10 @@ public class Inventaire {
             return 0;
     }
 
-
+    /**
+     *
+     * @return l'instance de l'inventaire
+     */
     public static Inventaire getInstance(){
         if(inventaire == null) {
             inventaire = new Inventaire();
