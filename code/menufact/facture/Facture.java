@@ -2,6 +2,7 @@ package menufact.facture;
 
 import ingredients.IngredientInventaire;
 import inventaire.Inventaire;
+import menufact.Chef;
 import menufact.IChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
@@ -155,6 +156,11 @@ public class Facture implements IChefUpdate {
 
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+    }
+
+    public void ajouteChef(Chef chef)
+    {
+        this.lesChefs.add(chef);
     }
 
     /**
