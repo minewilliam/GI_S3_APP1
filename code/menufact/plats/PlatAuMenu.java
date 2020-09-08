@@ -1,13 +1,9 @@
 package menufact.plats;
 
-import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
-import jdk.nashorn.internal.lookup.Lookup;
 import menufact.facture.models.IFacturable;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Map;
 
 public class PlatAuMenu implements IFacturable {
     protected int code;
@@ -39,8 +35,17 @@ public class PlatAuMenu implements IFacturable {
                 "}\n";
     }
 
+    public ArrayList<IngredientInventaire> getIngredients() {
+        return this.Ingredients;
+    }
+
+    public void setIngredients(ArrayList<IngredientInventaire> ingredients)
+    {
+        this.Ingredients = ingredients;
+    }
+
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int code) {
