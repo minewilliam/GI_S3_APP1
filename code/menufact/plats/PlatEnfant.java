@@ -3,11 +3,8 @@ package menufact.plats;
 public class PlatEnfant extends PlatAuMenu{
     private double proportion;
 
-    public PlatEnfant() {
-    }
-
-    public PlatEnfant(int code, String description, double prix, double proportion) {
-        super(code, description, prix);
+    public PlatEnfant(PlatAuMenu plat, double proportion) {
+        super(plat);
         this.proportion = proportion;
     }
 

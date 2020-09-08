@@ -1,16 +1,25 @@
 package menufact.plats;
 
+import ingredients.Ingredient;
+import ingredients.IngredientInventaire;
+import jdk.nashorn.internal.lookup.Lookup;
 import menufact.facture.models.IFacturable;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Map;
 
 public class PlatAuMenu implements IFacturable {
     protected int code;
     protected String description;
     protected double prix;
+    protected ArrayList<IngredientInventaire> Ingredients;
 
-    public PlatAuMenu(int code, String description, double prix) {
+    public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> Ingredients) {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.Ingredients = Ingredients;
     }
 
     public PlatAuMenu(PlatAuMenu plat)
@@ -18,9 +27,7 @@ public class PlatAuMenu implements IFacturable {
         this.code = plat.code;
         this.description = plat.description;
         this.prix = plat.prix;
-    }
-
-    public PlatAuMenu() {
+        this.Ingredients = plat.Ingredients;
     }
 
     @Override

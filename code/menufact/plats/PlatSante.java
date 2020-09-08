@@ -1,20 +1,20 @@
 package menufact.plats;
 
+import ingredients.Ingredient;
 import menufact.plats.PlatAuMenu;
+
+import java.util.ArrayList;
 
 public class PlatSante extends PlatAuMenu {
     private double kcal;
     private double chol;
     private double gras;
 
-    public PlatSante(int code, String description, double prix, double kcal, double chol, double gras) {
-        super(code, description, prix);
+    public PlatSante(PlatAuMenu plat, double kcal, double chol, double gras) {
+        super(plat);
         this.kcal = kcal;
         this.chol = chol;
         this.gras = gras;
-    }
-
-    public PlatSante() {
     }
 
     @Override
