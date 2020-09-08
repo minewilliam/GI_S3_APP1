@@ -177,7 +177,10 @@ public class Facture implements IChefUpdate {
                 ", TVQ=" + TVQ +
                 '}';
     }
-
+    /**
+     *
+     * @param plat le plat avec lequel notifier les chefs
+     */
     public void update(PlatChoisi plat){
         for(int i=0;i<lesChefs.size();i++){
             lesChefs.get(i).update(plat);

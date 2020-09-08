@@ -30,7 +30,10 @@ public class PlatAuMenu implements IFacturable {
         this.Ingredients = plat.Ingredients;
     }
 
-
+    /**
+     *
+     * @param etat l'etat auxquel changer la facture
+     */
     public void ChangeState(IEtatPlat etat){
         this.etat = etat;
     }
