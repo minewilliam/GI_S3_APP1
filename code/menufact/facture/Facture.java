@@ -1,14 +1,12 @@
 package menufact.facture;
 
-
-import ingredients.Ingredient;
 import ingredients.IngredientInventaire;
 import inventaire.Inventaire;
+import menufact.Chef;
 import menufact.IChefUpdate;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.EtatImpossibleDeServir;
-import menufact.plats.IEtatPlat;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -160,6 +158,11 @@ public class Facture implements IChefUpdate {
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
     }
 
+    public void ajouteChef(Chef chef)
+    {
+        this.lesChefs.add(chef);
+    }
+
     /**
      *
      * @return le contenu de la facture en chaîne de caracteres
@@ -182,9 +185,7 @@ public class Facture implements IChefUpdate {
      * @param plat le plat avec lequel notifier les chefs
      */
     public void update(PlatChoisi plat){
-        for(int i=0;i<lesChefs.size();i++){
-            lesChefs.get(i).update(plat);
-        }
+        lesChefs.forEach(chef -> chef.update(plat));
     }
 
     /**

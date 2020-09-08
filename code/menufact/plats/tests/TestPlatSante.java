@@ -24,12 +24,12 @@ public class TestPlatSante {
         System.out.println("Passed: "+ m_passed + " Failed: " + m_failed);
 
     }
+
     private void TestPlatSante_GetKcalCholGras(){
         ArrayList<IngredientInventaire> array = new ArrayList<IngredientInventaire>();
         try {
             array.add(new IngredientInventaire(ingredient1, 2));
             array.add(new IngredientInventaire(ingredient2, 4));
-
         }
         catch (Exception e){
             System.out.println(e.getMessage());

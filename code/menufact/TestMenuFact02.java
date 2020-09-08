@@ -13,6 +13,7 @@ import menufact.plats.tests.TestPlatChoisi;
 import menufact.plats.tests.TestPlatEnfant;
 import menufact.plats.tests.TestPlatSante;
 import menufact.plats.tests.TestPlatAuMenu;
+import menufact.tests.TestChef;
 import menufact.tests.TestClient;
 import menufact.tests.TestMenu;
 
@@ -26,10 +27,10 @@ public class TestMenuFact02 {
         new TestClient();
         new TestMenu();
         new TestPlatAuMenu();
-
         new TestPlatChoisi();
         new TestPlatSante();
         new TestPlatEnfant();
+        new TestChef();
 
 
         Viande ingredient1 = new Viande("Ravioli", "violi");
